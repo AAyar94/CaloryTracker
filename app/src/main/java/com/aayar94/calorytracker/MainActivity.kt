@@ -10,7 +10,9 @@ import com.aaayar94.core.navigation.Route
 import com.aayar94.calorytracker.navigation.navigate
 import com.aayar94.calorytracker.ui.theme.CaloryTrackerTheme
 import com.aayar94.onboard_presentation.welcome.WelcomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
