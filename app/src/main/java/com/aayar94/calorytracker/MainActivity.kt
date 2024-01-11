@@ -19,6 +19,7 @@ import com.aayar94.onboard_presentation.age.AgeScreen
 import com.aayar94.onboard_presentation.gender.GenderScreen
 import com.aayar94.onboard_presentation.goal.GoalScreen
 import com.aayar94.onboard_presentation.height.HeightScreen
+import com.aayar94.onboard_presentation.nutrient_goal.NutrientGoalScreen
 import com.aayar94.onboard_presentation.weight.WeightScreen
 import com.aayar94.onboard_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -62,7 +63,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.NUTRIENT_GOAL) {
-
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.ACTIVITY) {
                             ActivityScreen(onNavigate = navController::navigate)
