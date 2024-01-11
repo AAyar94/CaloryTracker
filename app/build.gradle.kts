@@ -46,7 +46,9 @@ android {
         }
     }
 }
-
+kapt {
+    correctErrorTypes = true
+}
 dependencies {
     implementation(Compose.compiler)
     implementation(Compose.ui)
@@ -105,4 +107,5 @@ dependencies {
     androidTestImplementation(Testing.hiltTesting)
     kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
+    androidTestImplementation (Testing.dexMaker)
 }

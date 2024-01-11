@@ -27,4 +27,7 @@ object Testing {
 
     private const val testRunnerVersion = "1.4.0"
     const val testRunner = "androidx.test:runner:$testRunnerVersion"
+
+    private const val dexMakerVersion = "2.28.3"
+    const val dexMaker = "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
 }
