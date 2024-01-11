@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.aaayar94.core.navigation.Route
 import com.aayar94.calorytracker.navigation.navigate
 import com.aayar94.calorytracker.ui.theme.CaloryTrackerTheme
+import com.aayar94.onboard_presentation.gender.GenderScreen
 import com.aayar94.onboard_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,8 +24,11 @@ class MainActivity : ComponentActivity() {
                     composable(Route.WELCOME) {
                         WelcomeScreen(onNavigate = navController::navigate)
                     }
-                    composable(Route.GENDER) {
+                    composable(Route.AGE) {
 
+                    }
+                    composable(Route.GENDER) {
+                        GenderScreen(onNavigate = navController::navigate)
                     }
                     composable(Route.HEIGHT) {
 
