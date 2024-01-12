@@ -11,6 +11,6 @@ import com.aayar94.tracker_data.local.entity.TrackedFoodEntity
 )
 abstract class TrackerDatabase : RoomDatabase() {
 
-    abstract val dao:TrackedDao
+    abstract val dao:TrackerDao
 
 }

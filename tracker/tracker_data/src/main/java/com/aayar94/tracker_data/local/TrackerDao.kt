@@ -9,7 +9,7 @@ import com.aayar94.tracker_data.local.entity.TrackedFoodEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface TrackedDao {
+interface TrackerDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTrackedFood(trackedFoodEntity: TrackedFoodEntity)
