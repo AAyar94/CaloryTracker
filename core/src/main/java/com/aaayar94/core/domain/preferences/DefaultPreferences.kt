@@ -1,15 +1,14 @@
-package com.aaayar94.core.domain
+package com.aaayar94.core.domain.preferences
 
 import android.content.SharedPreferences
 import com.aaayar94.core.domain.model.ActivityLevel
 import com.aaayar94.core.domain.model.Gender
 import com.aaayar94.core.domain.model.GoalType
 import com.aaayar94.core.domain.model.UserInfo
-import com.aaayar94.core.domain.preferences.Preferences
 
 class DefaultPreferences(
     private val sharedPref: SharedPreferences
-): Preferences {
+) : Preferences {
     override fun saveGender(gender: Gender) {
         sharedPref.edit()
             .putString(Preferences.KEY_GENDER, gender.name)
@@ -62,6 +61,16 @@ class DefaultPreferences(
         sharedPref.edit()
             .putFloat(Preferences.KEY_FAT_RATIO, ratio)
             .apply()
+    }
+
+    override fun saveShouldShowOnboarding(shouldShow: Boolean) {
+        sharedPref.edit()
+            .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, shouldShow)
+            .apply()
+    }
+
+    override fun loadShouldShowOnboarding(): Boolean {
+        return sharedPref.getBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, true)
     }
 
     override fun loadUserInfo(): UserInfo {
