@@ -19,6 +19,6 @@ dependencies {
     implementation(Retrofit.moshiConverter)
 
     "kapt"(Room.roomCompiler)
-    implementation(Room.roomKtx)
-    implementation(Room.roomRuntime)
+    "implementation"(Room.roomKtx)
+    "implementation"(Room.roomRuntime)
 }
