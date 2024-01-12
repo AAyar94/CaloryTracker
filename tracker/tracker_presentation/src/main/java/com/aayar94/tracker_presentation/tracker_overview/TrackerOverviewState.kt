@@ -4,7 +4,7 @@ import com.aayar94.tracker_domain.model.TrackedFood
 import java.time.LocalDate
 
 data class TrackerOverviewState(
-    val totalCarbsAmount: Int = 0,
+    val totalCarbs: Int = 0,
     val totalProtein: Int = 0,
     val totalFat: Int = 0,
     val totalCalories: Int = 0,
