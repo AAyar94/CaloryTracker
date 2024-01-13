@@ -34,7 +34,7 @@ fun AddButton(
         modifier = modifier
             .clip(RoundedCornerShape(100f))
             .clickable {
-                onClick
+                onClick()
             }
             .border(
                 width = 1.dp,
