@@ -1,4 +1,4 @@
-package com.aaayar94.core.navigation
+package com.aayar94.calorytracker.navigation
 
 object Route {
     const val WELCOME = "welcome"

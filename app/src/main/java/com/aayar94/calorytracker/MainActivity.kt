@@ -14,8 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.aaayar94.core.domain.preferences.Preferences
-import com.aaayar94.core.navigation.Route
-import com.aayar94.calorytracker.navigation.navigate
+import com.aayar94.calorytracker.navigation.Route
 import com.aayar94.calorytracker.ui.theme.CaloryTrackerTheme
 import com.aayar94.onboard_presentation.activity.ActivityScreen
 import com.aayar94.onboard_presentation.age.AgeScreen
@@ -52,43 +51,47 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(it)
                     ) {
                         composable(Route.WELCOME) {
-                            WelcomeScreen(onNavigate = navController::navigate)
+                            WelcomeScreen(onNextClick = { navController.navigate(Route.AGE) })
                         }
                         composable(Route.AGE) {
                             AgeScreen(
                                 scaffoldState = scaffoldState,
-                                onNavigate = navController::navigate
+                                onNextClick = { navController.navigate(Route.GENDER) }
                             )
                         }
                         composable(Route.GENDER) {
-                            GenderScreen(onNavigate = navController::navigate)
+                            GenderScreen(onNextClick = { navController.navigate(Route.HEIGHT) })
                         }
                         composable(Route.HEIGHT) {
                             HeightScreen(
                                 scaffoldState = scaffoldState,
-                                onNavigate = navController::navigate
+                                onNextClick = { navController.navigate(Route.WEIGHT) }
                             )
                         }
                         composable(Route.WEIGHT) {
                             WeightScreen(
                                 scaffoldState = scaffoldState,
-                                onNavigate = navController::navigate
+                                onNextClick = { navController.navigate(Route.ACTIVITY) }
                             )
+                        }
+                        composable(Route.ACTIVITY) {
+                            ActivityScreen({ navController.navigate(Route.GOAL) })
+                        }
+                        composable(Route.GOAL) {
+                            GoalScreen({ navController.navigate(Route.NUTRIENT_GOAL) })
                         }
                         composable(Route.NUTRIENT_GOAL) {
                             NutrientGoalScreen(
                                 scaffoldState = scaffoldState,
-                                onNavigate = navController::navigate
+                                { navController.navigate(Route.TRACKER_OVERVIEW) }
                             )
                         }
-                        composable(Route.ACTIVITY) {
-                            ActivityScreen(onNavigate = navController::navigate)
-                        }
-                        composable(Route.GOAL) {
-                            GoalScreen(onNavigate = navController::navigate)
-                        }
                         composable(Route.TRACKER_OVERVIEW) {
-                            TrackerOverviewScreen(onNavigate = navController::navigate)
+                            TrackerOverviewScreen(onNavigateToSearch = { mealName, day, month, year ->
+                                navController.navigate(
+                                    Route.SEARCH + "/$mealName" + "$day" + "$month" + "$year"
+                                )
+                            })
                         }
                         composable(
                             Route.SEARCH + "/{mealName}/{dayOfMonth}/{month}/{year}",
