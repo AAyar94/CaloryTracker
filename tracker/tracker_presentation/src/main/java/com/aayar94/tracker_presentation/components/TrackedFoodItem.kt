@@ -1,4 +1,4 @@
-package com.aayar94.tracker_presentation.tracker_overview.components
+package com.aayar94.tracker_presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import com.aayar94.core.R
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.tracker_domain.model.TrackedFood
 
@@ -100,27 +101,27 @@ fun TrackedFoodItem(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 NutrientInfo(
-                    name = stringResource(id = com.aayar94.core.R.string.carbs),
+                    name = stringResource(id = R.string.carbs),
                     amount = trackedFood.carbs,
-                    unit = stringResource(id = com.aayar94.core.R.string.grams),
+                    unit = stringResource(id = R.string.grams),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
                     nameTextStyle = MaterialTheme.typography.body2
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceSmall))
                 NutrientInfo(
-                    name = stringResource(id = com.aayar94.core.R.string.protein),
+                    name = stringResource(id = R.string.protein),
                     amount = trackedFood.protein,
-                    unit = stringResource(id = com.aayar94.core.R.string.grams),
+                    unit = stringResource(id = R.string.grams),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
                     nameTextStyle = MaterialTheme.typography.body2
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceSmall))
                 NutrientInfo(
-                    name = stringResource(id = com.aayar94.core.R.string.fat),
+                    name = stringResource(id = R.string.fat),
                     amount = trackedFood.fat,
-                    unit = stringResource(id = com.aayar94.core.R.string.grams),
+                    unit = stringResource(id = R.string.grams),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
                     nameTextStyle = MaterialTheme.typography.body2

@@ -1,4 +1,4 @@
-package com.aayar94.tracker_presentation.tracker_overview.components
+package com.aayar94.tracker_presentation.components
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.aayar94.core.R
 
 @Composable
 fun NutientBarInfo(
@@ -84,7 +85,7 @@ fun NutientBarInfo(
         ) {
             UnitDisplay(
                 amount = value.toString(),
-                unit = stringResource(id = com.aayar94.core.R.string.grams),
+                unit = stringResource(id = R.string.grams),
                 amountColor = if (value <= goal) {
                     MaterialTheme.colors.onPrimary
                 } else goalExceededColor

@@ -1,4 +1,4 @@
-package com.aayar94.tracker_presentation.tracker_overview.components
+package com.aayar94.tracker_presentation.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -28,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.aayar94.core.R
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.tracker_presentation.tracker_overview.Meal
 
@@ -83,26 +84,26 @@ fun ExpandableMeal(
                 ) {
                     UnitDisplay(
                         amount = meal.calories.toString(),
-                        unit = stringResource(id = com.aayar94.core.R.string.kcal),
+                        unit = stringResource(id = R.string.kcal),
                         amountTextSize = 30.sp
                     )
                     Row {
                         NutrientInfo(
-                            name = stringResource(id = com.aayar94.core.R.string.carbs),
+                            name = stringResource(id = R.string.carbs),
                             amount = meal.carbs,
-                            unit = stringResource(id = com.aayar94.core.R.string.grams),
+                            unit = stringResource(id = R.string.grams),
                         )
                         Spacer(modifier = Modifier.width(spacing.spaceSmall))
                         NutrientInfo(
-                            name = stringResource(id = com.aayar94.core.R.string.protein),
+                            name = stringResource(id = R.string.protein),
                             amount = meal.protein,
-                            unit = stringResource(id = com.aayar94.core.R.string.grams),
+                            unit = stringResource(id = R.string.grams),
                         )
                         Spacer(modifier = Modifier.width(spacing.spaceSmall))
                         NutrientInfo(
-                            name = stringResource(id = com.aayar94.core.R.string.fat),
+                            name = stringResource(id = R.string.fat),
                             amount = meal.fat,
-                            unit = stringResource(id = com.aayar94.core.R.string.grams),
+                            unit = stringResource(id = R.string.grams),
                         )
                     }
                 }

@@ -14,12 +14,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.aaayar94.core.util.UiEvent
+import com.aayar94.core.R
 import com.aayar94.core_ui.LocalSpacing
-import com.aayar94.tracker_presentation.tracker_overview.components.AddButton
-import com.aayar94.tracker_presentation.tracker_overview.components.DaySelector
-import com.aayar94.tracker_presentation.tracker_overview.components.ExpandableMeal
-import com.aayar94.tracker_presentation.tracker_overview.components.NutrientsHeader
-import com.aayar94.tracker_presentation.tracker_overview.components.TrackedFoodItem
+import com.aayar94.tracker_presentation.components.AddButton
+import com.aayar94.tracker_presentation.components.DaySelector
+import com.aayar94.tracker_presentation.components.ExpandableMeal
+import com.aayar94.tracker_presentation.components.NutrientsHeader
+import com.aayar94.tracker_presentation.components.TrackedFoodItem
 
 @Composable
 fun TrackerOverviewScreen(
@@ -74,7 +75,7 @@ fun TrackerOverviewScreen(
                         }
                         AddButton(
                             text = stringResource(
-                                id = com.aayar94.core.R.string.add_meal,
+                                id = R.string.add_meal,
                                 meal.name.asString(context)
                             ),
                             onClick = {

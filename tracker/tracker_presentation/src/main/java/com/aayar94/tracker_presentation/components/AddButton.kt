@@ -1,4 +1,4 @@
-package com.aayar94.tracker_presentation.tracker_overview.components
+package com.aayar94.tracker_presentation.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable

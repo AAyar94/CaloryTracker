@@ -1,4 +1,4 @@
-package com.aayar94.tracker_presentation.tracker_overview.components
+package com.aayar94.tracker_presentation.components
 
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.foundation.background
@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.aayar94.core.R
 import com.aayar94.core_ui.CarbColor
 import com.aayar94.core_ui.FatColor
 import com.aayar94.core_ui.LocalSpacing
@@ -45,7 +46,7 @@ fun NutrientsHeader(
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             UnitDisplay(
                 amount = animatedCalorieCount.value.toString(),
-                unit = stringResource(id = com.aayar94.core.R.string.kcal),
+                unit = stringResource(id = R.string.kcal),
                 amountColor = MaterialTheme.colors.onPrimary,
                 amountTextSize = 40.sp,
                 unitColor = MaterialTheme.colors.onPrimary,
@@ -59,7 +60,7 @@ fun NutrientsHeader(
                 )
                 UnitDisplay(
                     amount = animatedCalorieCount.value.toString(),
-                    unit = stringResource(id = com.aayar94.core.R.string.kcal),
+                    unit = stringResource(id = R.string.kcal),
                     amountColor = MaterialTheme.colors.onPrimary,
                     amountTextSize = 40.sp,
                     unitColor = MaterialTheme.colors.onPrimary
@@ -81,17 +82,17 @@ fun NutrientsHeader(
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             NutientBarInfo(
                 value = state.totalCarbs, goal = state.carbsGoal, name = stringResource(
-                    id = com.aayar94.core.R.string.carbs
+                    id = R.string.carbs
                 ), color = CarbColor, modifier = Modifier.size(90.dp)
             )
             NutientBarInfo(
                 value = state.totalProtein, goal = state.proteinGoal, name = stringResource(
-                    id = com.aayar94.core.R.string.protein
+                    id = R.string.protein
                 ), color = ProteinColor, modifier = Modifier.size(90.dp)
             )
             NutientBarInfo(
                 value = state.totalFat, goal = state.fatGoal, name = stringResource(
-                    id = com.aayar94.core.R.string.fat
+                    id = R.string.fat
                 ), color = FatColor, modifier = Modifier.size(90.dp)
             )
         }
