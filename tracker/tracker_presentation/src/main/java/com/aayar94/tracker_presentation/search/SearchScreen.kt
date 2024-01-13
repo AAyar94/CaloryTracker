@@ -27,7 +27,7 @@ import com.aaayar94.core.util.UiEvent
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.tracker_domain.model.MealType
 import com.aayar94.tracker_presentation.search.components.SearchTextField
-import com.aayar94.tracker_presentation.search.components.TrackableFoodItem
+import com.plcoding.tracker_presentation.search.components.TrackableFoodItem
 import java.time.LocalDate
 import com.aayar94.core.R.string as AppText
 
@@ -98,7 +98,7 @@ fun SearchScreen(
                             SearchEvent.OnToggleTrackableFood(food = food.food)
                         )
                     },
-                    onAmountChanged = {
+                    onAmountChange = {
                         viewModel.onEvent(
                             SearchEvent.OnAmountForFoodChange(
                                 food = food.food,
