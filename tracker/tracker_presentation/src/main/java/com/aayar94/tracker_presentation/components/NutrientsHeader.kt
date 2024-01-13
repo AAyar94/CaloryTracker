@@ -34,7 +34,7 @@ fun NutrientsHeader(
 ) {
 
     val spacing = LocalSpacing.current
-    val animatedCalorieCount = animateIntAsState(targetValue = state.totalCalories)
+    val animatedCalorieCount = animateIntAsState(targetValue = state.caloriesGoal)
 
     Column(
         modifier = modifier

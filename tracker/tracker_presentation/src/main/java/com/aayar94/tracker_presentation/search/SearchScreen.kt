@@ -23,6 +23,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.annotation.ExperimentalCoilApi
 import com.aaayar94.core.util.UiEvent
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.tracker_domain.model.MealType
@@ -31,7 +32,7 @@ import com.plcoding.tracker_presentation.search.components.TrackableFoodItem
 import java.time.LocalDate
 import com.aayar94.core.R.string as AppText
 
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalCoilApi::class)
 @Composable
 fun SearchScreen(
     scaffoldState: ScaffoldState,
@@ -82,8 +83,14 @@ fun SearchScreen(
         )
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         SearchTextField(text = state.query,
-            onValueChanged = { viewModel.onEvent(SearchEvent.OnQueryChange(it)) },
-            onSearch = { viewModel.onEvent(SearchEvent.OnSearch) },
+            onValueChanged = {
+                viewModel.onEvent(SearchEvent.OnQueryChange(it))
+            },
+            shouldShowHint = state.isHintVisible,
+            onSearch = {
+                keyboardController?.hide()
+                viewModel.onEvent(SearchEvent.OnSearch)
+            },
             onFocusChanged = {
                 viewModel.onEvent(SearchEvent.OnSearchFocusChange(it.isFocused))
             }
@@ -107,6 +114,7 @@ fun SearchScreen(
                         )
                     },
                     onTrack = {
+                        keyboardController?.hide()
                         viewModel.onEvent(
                             SearchEvent.OnTrackFoodClick(
                                 food = food.food,

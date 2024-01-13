@@ -1,6 +1,5 @@
 package com.aayar94.tracker_presentation.tracker_overview
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -34,6 +33,7 @@ class TrackerOverviewViewModel @Inject constructor(
     val uiEvent = _uiEvent.receiveAsFlow()
 
     init {
+        refreshFoods()
         preferences.saveShouldShowOnboarding(false)
     }
 
