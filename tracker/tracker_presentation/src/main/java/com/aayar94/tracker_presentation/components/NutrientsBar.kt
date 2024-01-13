@@ -35,13 +35,19 @@ fun NutrientsBar(
     }
 
     LaunchedEffect(key1 = carbs) {
-        carbWithRatio.animateTo(targetValue = ((carbs * 4f) / caloriesGoal))
+        carbWithRatio.animateTo(
+            targetValue = ((carbs * 4f) / caloriesGoal)
+        )
     }
     LaunchedEffect(key1 = protein) {
-        proteinWithRatio.animateTo(targetValue = ((protein * 4f) / caloriesGoal))
+        proteinWithRatio.animateTo(
+            targetValue = ((protein * 4f) / caloriesGoal)
+        )
     }
     LaunchedEffect(key1 = fat) {
-        fatWithRatio.animateTo(targetValue = ((fat * 9f) / caloriesGoal))
+        fatWithRatio.animateTo(
+            targetValue = ((fat * 9f) / caloriesGoal)
+        )
     }
     Canvas(modifier = modifier) {
         if (calories <= caloriesGoal) {

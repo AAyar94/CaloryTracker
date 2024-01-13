@@ -1,4 +1,4 @@
-package com.aayar94.tracker_presentation.tracker_overview
+package com.plcoding.tracker_presentation.tracker_overview
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.aaayar94.core.domain.preferences.Preferences
 import com.aaayar94.core.util.UiEvent
 import com.aayar94.tracker_domain.use_case.TrackerUseCases
+import com.aayar94.tracker_presentation.tracker_overview.TrackerOverviewEvent
+import com.aayar94.tracker_presentation.tracker_overview.TrackerOverviewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
@@ -20,16 +22,16 @@ import javax.inject.Inject
 @HiltViewModel
 class TrackerOverviewViewModel @Inject constructor(
     preferences: Preferences,
-    private val trackerUseCases: TrackerUseCases
+    private val trackerUseCases: TrackerUseCases,
 ) : ViewModel() {
 
     var state by mutableStateOf(TrackerOverviewState())
         private set
 
-    private var getFoodForDateJob: Job? = null
-
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
+
+    private var getFoodsForDateJob: Job? = null
 
     init {
         refreshFoods()
@@ -38,7 +40,6 @@ class TrackerOverviewViewModel @Inject constructor(
 
     fun onEvent(event: TrackerOverviewEvent) {
         when (event) {
-
             is TrackerOverviewEvent.OnDeleteTrackedFoodClick -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteTrackedFoodUseCase(event.trackedFood)
@@ -72,10 +73,9 @@ class TrackerOverviewViewModel @Inject constructor(
         }
     }
 
-
     private fun refreshFoods() {
-        getFoodForDateJob?.cancel()
-        getFoodForDateJob = trackerUseCases
+        getFoodsForDateJob?.cancel()
+        getFoodsForDateJob = trackerUseCases
             .getFoodsForDateUseCase(state.date)
             .onEach { foods ->
                 val nutrientsResult = trackerUseCases.calculateMealNutrients(foods)
@@ -102,10 +102,11 @@ class TrackerOverviewViewModel @Inject constructor(
                             carbs = nutrientsForMeal.carbs,
                             protein = nutrientsForMeal.protein,
                             fat = nutrientsForMeal.fat,
-                            calories = nutrientsForMeal.calories,
+                            calories = nutrientsForMeal.calories
                         )
                     }
                 )
-            }.launchIn(viewModelScope)
+            }
+            .launchIn(viewModelScope)
     }
 }

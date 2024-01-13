@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.room.Room
 import com.aayar94.tracker_data.local.TrackerDatabase
 import com.aayar94.tracker_data.remote.OpenFoodApi
-import com.aayar94.tracker_data.repository.TrackerRepositoryImpl
 import com.aayar94.tracker_domain.repository.TrackerRepository
+import com.plcoding.tracker_data.repository.TrackerRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

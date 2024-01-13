@@ -22,6 +22,7 @@ import com.aayar94.tracker_presentation.components.DaySelector
 import com.aayar94.tracker_presentation.components.ExpandableMeal
 import com.aayar94.tracker_presentation.components.NutrientsHeader
 import com.aayar94.tracker_presentation.components.TrackedFoodItem
+import com.plcoding.tracker_presentation.tracker_overview.TrackerOverviewViewModel
 
 @Composable
 fun TrackerOverviewScreen(
@@ -57,7 +58,6 @@ fun TrackerOverviewScreen(
                 meal = meal,
                 onToggleClick = { viewModel.onEvent(TrackerOverviewEvent.OnToggleMealClick(meal)) },
                 content = {
-
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -95,5 +95,4 @@ fun TrackerOverviewScreen(
             )
         }
     }
-
 }
