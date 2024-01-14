@@ -54,7 +54,7 @@ fun ExpandableMeal(
                 painter = painterResource(id = meal.drawableRes),
                 contentDescription = meal.name.asString(context = context),
                 modifier = Modifier
-                    .size(120.dp), contentScale = ContentScale.Crop
+                    .size(100.dp), contentScale = ContentScale.Fit
                 //TODO image size change
             )
             Spacer(modifier = Modifier.width(spacing.spaceMedium))

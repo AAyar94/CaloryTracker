@@ -82,8 +82,8 @@ fun TrackableFoodItem(
                         data = food.imageUrl,
                         builder = {
                             crossfade(true)
-                            error(AppDrawable.breakfast)
-                            fallback(AppDrawable.breakfast)
+                            error(AppDrawable.ic_error)
+                            fallback(AppDrawable.ic_error)
                         }
                     ),
                     contentDescription = food.name,

@@ -56,8 +56,8 @@ fun TrackedFoodItem(
         Image(
             painter = rememberImagePainter(data = trackedFood.imageUrl, builder = {
                 crossfade(true)
-                error(com.aayar94.core.R.drawable.breakfast)
-                fallback(com.aayar94.core.R.drawable.breakfast)
+                error(com.aayar94.core.R.drawable.ic_error)
+                fallback(com.aayar94.core.R.drawable.ic_error)
             }),
             contentDescription = trackedFood.name,
             contentScale = ContentScale.Crop,
