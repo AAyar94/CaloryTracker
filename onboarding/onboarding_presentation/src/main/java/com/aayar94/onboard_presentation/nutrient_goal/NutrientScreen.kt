@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
@@ -21,6 +22,7 @@ import com.aaayar94.core.util.UiEvent
 import com.aayar94.core.R
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.onboard_presentation.component.ActionButton
+import com.aayar94.onboard_presentation.component.ProgressIndicator
 import com.aayar94.onboard_presentation.component.UnitTextField
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -58,6 +60,8 @@ fun NutrientGoalScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            ProgressIndicator(currentStep = 6, totalStep = 6)
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
             Text(
                 text = stringResource(id = R.string.what_are_your_nutrient_goals),
                 style = MaterialTheme.typography.h3
@@ -90,7 +94,10 @@ fun NutrientGoalScreen(
         ActionButton(
             text = stringResource(id = R.string.next),
             onClick = { viewModel.onEvent(NutrientGoalEvent.OnNextClick) },
-            modifier = Modifier.align(Alignment.BottomEnd)
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .padding(horizontal = spacing.spaceMedium)
         )
     }
 }

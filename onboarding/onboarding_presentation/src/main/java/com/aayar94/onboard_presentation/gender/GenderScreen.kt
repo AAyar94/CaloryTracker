@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -18,12 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.aaayar94.core.domain.model.Gender
 import com.aaayar94.core.util.UiEvent
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.onboard_presentation.component.ActionButton
 import com.aayar94.onboard_presentation.component.GenderButton
+import com.aayar94.onboard_presentation.component.ProgressIndicator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.plcoding.onboarding_presentation.gender.GenderViewModel
 
@@ -51,8 +54,10 @@ fun GenderScreen(
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            ProgressIndicator(currentStep = 0, totalStep = 6)
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
             Text(
                 text = stringResource(id = com.aayar94.core.R.string.whats_your_gender),
                 style = MaterialTheme.typography.h3
@@ -91,7 +96,7 @@ fun GenderScreen(
         ActionButton(
             text = stringResource(id = com.aayar94.core.R.string.next),
             onClick = viewModel::onNextClick,
-            modifier = Modifier.align(Alignment.BottomEnd)
+            modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.spaceMedium).align(Alignment.BottomCenter)
         )
     }
 }
