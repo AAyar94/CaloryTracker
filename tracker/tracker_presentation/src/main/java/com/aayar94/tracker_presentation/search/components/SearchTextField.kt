@@ -44,7 +44,9 @@ fun SearchTextField(
     val spacing = LocalSpacing.current
     Box(modifier = modifier) {
         BasicTextField(
-            value = text, onValueChange = onValueChanged, singleLine = true,
+            value = text,
+            onValueChange = onValueChanged,
+            singleLine = true,
             keyboardActions = KeyboardActions(
                 onSearch = {
                     onSearch()
@@ -52,7 +54,7 @@ fun SearchTextField(
                 }),
             keyboardOptions = KeyboardOptions(
                 imeAction = ImeAction.Search,
-                keyboardType = KeyboardType.Number
+                keyboardType = KeyboardType.Text
             ),
             modifier = Modifier
                 .clip(RoundedCornerShape(5.dp))
