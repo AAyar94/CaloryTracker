@@ -23,7 +23,7 @@ import com.aaayar94.core.domain.model.Gender
 import com.aaayar94.core.util.UiEvent
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.onboard_presentation.component.ActionButton
-import com.aayar94.onboard_presentation.component.SelectableButton
+import com.aayar94.onboard_presentation.component.GenderButton
 import com.plcoding.onboarding_presentation.gender.GenderViewModel
 
 @Composable
@@ -56,7 +56,7 @@ fun GenderScreen(
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             Row {
-                SelectableButton(
+                GenderButton(
                     text = stringResource(id = com.aayar94.core.R.string.male),
                     isSelected = viewModel.selectedGender is Gender.Male,
                     color = MaterialTheme.colors.primaryVariant,
@@ -66,10 +66,11 @@ fun GenderScreen(
                     },
                     textStyle = MaterialTheme.typography.button.copy(
                         fontWeight = FontWeight.Normal
-                    )
+                    ),
+                    icon = com.aayar94.core.R.drawable.ic_man
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
-                SelectableButton(
+                GenderButton(
                     text = stringResource(id = com.aayar94.core.R.string.female),
                     isSelected = viewModel.selectedGender is Gender.Female,
                     color = MaterialTheme.colors.primaryVariant,
@@ -79,7 +80,8 @@ fun GenderScreen(
                     },
                     textStyle = MaterialTheme.typography.button.copy(
                         fontWeight = FontWeight.Normal
-                    )
+                    ),
+                    icon = com.aayar94.core.R.drawable.ic_woman
                 )
             }
         }
