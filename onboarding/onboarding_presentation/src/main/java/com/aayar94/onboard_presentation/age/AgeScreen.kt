@@ -28,6 +28,7 @@ import com.aayar94.core.R
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.onboard_presentation.component.ActionButton
 import com.aayar94.onboard_presentation.component.UnitTextField
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun AgeScreen(
@@ -37,6 +38,8 @@ fun AgeScreen(
 ) {
     val spacing = LocalSpacing.current
     val context = LocalContext.current
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(MaterialTheme.colors.surface)
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -20,6 +21,7 @@ import com.aayar94.tracker_presentation.components.DaySelector
 import com.aayar94.tracker_presentation.components.ExpandableMeal
 import com.aayar94.tracker_presentation.components.NutrientsHeader
 import com.aayar94.tracker_presentation.components.TrackedFoodItem
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.plcoding.tracker_presentation.tracker_overview.TrackerOverviewViewModel
 
 @Composable
@@ -32,6 +34,8 @@ fun TrackerOverviewScreen(
     val spacing = LocalSpacing.current
     val state = viewModel.state
     val context = LocalContext.current
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(MaterialTheme.colors.primary)
 
     LazyColumn(
         modifier = Modifier

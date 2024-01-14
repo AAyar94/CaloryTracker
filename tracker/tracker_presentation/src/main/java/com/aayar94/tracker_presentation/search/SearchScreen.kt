@@ -28,6 +28,7 @@ import com.aaayar94.core.util.UiEvent
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.tracker_domain.model.MealType
 import com.aayar94.tracker_presentation.search.components.SearchTextField
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.plcoding.tracker_presentation.search.components.TrackableFoodItem
 import java.time.LocalDate
 import com.aayar94.core.R.string as AppText
@@ -48,6 +49,8 @@ fun SearchScreen(
     val state = viewModel.state
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(MaterialTheme.colors.surface)
 
     LaunchedEffect(key1 = keyboardController) {
         viewModel.uiEvent.collect { event ->

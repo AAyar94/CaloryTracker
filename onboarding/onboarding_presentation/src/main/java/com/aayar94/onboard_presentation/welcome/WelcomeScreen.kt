@@ -16,6 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.aayar94.core_ui.LocalSpacing
 import com.aayar94.onboard_presentation.component.ActionButton
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun WelcomeScreen(
@@ -23,6 +24,8 @@ fun WelcomeScreen(
 ) {
     val spacing = LocalSpacing.current
     val context = LocalContext.current
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(MaterialTheme.colors.surface)
     Column(
         modifier = Modifier
             .fillMaxSize()
